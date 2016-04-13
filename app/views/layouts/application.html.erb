@@ -7,18 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	-# Nav_bar
+	
 	<%= nav_bar fixed: :top, brand: "Dailys", responsive: true do %>
-	    <%= menu_group do %>
+	  <%= menu_group do %>
 	        
-	    <% end %>
-	    <%= menu_group pull: :right do %>
-	        
-	    <% end %>
+	  <% end %>
+	  <%= menu_group pull: :right do %>
+	  	<% if user_signed_in? %>
+        <li class=""><a><%= current_user.email %></a></li>
+        <li class=""><%= link_to "Sair", destroy_user_session_path, method: :delete  %></li>
+      <% end %>  
+	  <% end %>
 	<% end %>
-	-# final da nav_bar
-
-<%= yield %>
+	
+	<div class="corpo">
+		<%= yield %>
+	</div>s
 
 </body>
-</html>

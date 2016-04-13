@@ -36,3 +36,14 @@
 	color: #18BC9C;
 	background: transparent;;
 }
+
+.corpo{
+	margin-top: 50px;
+}
+#tabelalogin{
+	border-spacing: 5px;  border-collapse: separate;
+}
+#modallogin{
+	margin-top: 200px;
+	width: 280px;
+}

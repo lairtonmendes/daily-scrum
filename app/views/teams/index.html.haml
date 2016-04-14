@@ -1,0 +1,53 @@
+.container-fluid
+  %p#notice= notice
+  %h1 Equipes
+  #lista-equipes
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Nome
+          %th{:colspan => "3"}
+      %tbody
+        - @teams.each do |team|
+          %tr
+            %td= team.nome
+            %td
+              %button.btn.btn-success.btn-xs
+                = glyph(:list_alt)
+                = link_to 'Ver', team, {id: 'btn-link-to'}
+            %td
+              %button.btn.btn-primary.btn-xs
+                = glyph(:pencil)
+                = link_to 'Editar', edit_team_path(team), {id: 'btn-link-to'}
+            %td
+              %button.btn.btn-danger.btn-xs
+                #btn-link-to
+                  = glyph(:trash)
+                  = link_to 'Excluir', team,method: :delete, data: { confirm: 'Deseja Excluir?'}
+  %br
+  = link_to 'New Team', new_team_path
+
+
+
+  %button.btn.btn-primary.btn-xs{"data-target" => "#novaEquipe", "data-toggle" => "modal", :type => "button"}
+    = glyph(:plus)
+    Nova Equipe
+
+/ Modal
+#novaEquipe.modal.fade{"aria-labelledby" => "novaEquipeLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#novaEquipeLabel.modal-title Nova Equipe
+      = simple_form_for @team do |f|
+        .modal-body
+          .form-group
+            = f.input :nome 
+            .help-block 
+              Escolha um nome creativo Ex: 
+              %i Millennium Falcon, Team Captain America e etc...
+        .modal-footer
+          %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Fechar
+          = f.submit 'Savar', {class: 'btn btn-primary btn-sm'}

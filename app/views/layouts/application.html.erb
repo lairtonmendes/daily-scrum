@@ -9,8 +9,8 @@
 <body>
 	
 	<%= nav_bar fixed: :top, brand: "Dailys", responsive: true do %>
-	  <%= menu_group do %>
-	        
+    <%= menu_group do %>
+      <%= menu_item "Equipes", teams_path %>
 	  <% end %>
 	  <%= menu_group pull: :right do %>
 	  	<% if user_signed_in? %>
@@ -22,6 +22,6 @@
 	
 	<div class="corpo">
 		<%= yield %>
-	</div>s
+	</div>
 
 </body>

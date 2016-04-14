@@ -25,15 +25,11 @@
                   = glyph(:trash)
                   = link_to 'Excluir', team,method: :delete, data: { confirm: 'Deseja Excluir?'}
   %br
-  = link_to 'New Team', new_team_path
-
-
-
   %button.btn.btn-primary.btn-xs{"data-target" => "#novaEquipe", "data-toggle" => "modal", :type => "button"}
     = glyph(:plus)
     Nova Equipe
 
-/ Modal
+/ Modal novaEquipe
 #novaEquipe.modal.fade{"aria-labelledby" => "novaEquipeLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
     .modal-content

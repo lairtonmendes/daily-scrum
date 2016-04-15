@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @daily.tipo %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @daily.data %>
+</p>
+
+<%= link_to 'Edit', edit_daily_path(@daily) %> |
+<%= link_to 'Back', dailies_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :replies
+  resources :dailies
   resources :teams
   devise_for :users
   root :to => "home#index"

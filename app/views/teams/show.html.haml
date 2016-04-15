@@ -13,8 +13,11 @@
 	.panel-body
 		.row
 			.col-md-6
-				fgfghfg
+				- @team.members.each do |m|
+					%li= m.email
 			.col-md-6
 				.center-block
-					%button.btn.btn-primary.btn-xs
+					= simple_form_for @team do |f|
+						= f.association :members, as: :check_boxes, label_method: :email, include_blank: false
+						= f.submit 'Adicionar'
 						 

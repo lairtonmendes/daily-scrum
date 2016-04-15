@@ -13,11 +13,15 @@
 	.panel-body
 		.row
 			.col-md-6
+				%b Membros da Equipe
+				%hr
 				- @team.members.each do |m|
 					%li= m.email
 			.col-md-6
 				.center-block
+					%b Membros de Disponíveis
+					%hr
 					= simple_form_for @team do |f|
-						= f.association :members, as: :check_boxes, label_method: :email, include_blank: false
+						= f.association :members, :label => false,as: :check_boxes, label_method: :email, include_blank: false
 						= f.submit 'Adicionar'
 						 

@@ -11,14 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415022326) do
+ActiveRecord::Schema.define(version: 20160415171927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dailies", force: :cascade do |t|
+    t.string   "tipo"
+    t.date     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "team_id"
+  end
+
   create_table "members_teams", force: :cascade do |t|
     t.integer "team_id"
     t.integer "user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text     "r_um"
+    t.text     "r_dois"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "daily_id"
   end
 
   create_table "teams", force: :cascade do |t|

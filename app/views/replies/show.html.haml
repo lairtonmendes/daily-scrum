@@ -1,0 +1,17 @@
+%div.modal-dialog#modal-show-repostas{:role =>'document'}
+	.modal-content
+		.modal-header
+			%h4.modal-title Resposta 
+		.modal-body
+			%p#notice= notice
+			%p
+				%strong= Question.new.title(@reply.daily,1)
+				%br
+				= @reply.r_um
+			%p
+				%strong= Question.new.title(@reply.daily,2)
+				%br
+				= @reply.r_dois
+			= link_to 'Edit', edit_reply_path(@reply)
+			|
+			= link_to 'Back', replies_path

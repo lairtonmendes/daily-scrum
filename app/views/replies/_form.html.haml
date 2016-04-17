@@ -1,0 +1,9 @@
+= simple_form_for(@reply) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :r_um, label: "#{Question.new.title(params[:daily_id],1).to_s}"
+    = f.input :r_dois, label: "#{Question.new.title(params[:daily_id],2).to_s}"
+    = f.hidden_field :daily_id, value: params[:daily_id]
+  .form-actions
+    = f.button :submit
+

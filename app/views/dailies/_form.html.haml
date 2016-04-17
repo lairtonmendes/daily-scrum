@@ -1,0 +1,7 @@
+= simple_form_for(@daily) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :tipo
+    = f.input :data
+  .form-actions
+    = f.button :submit

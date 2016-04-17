@@ -4,17 +4,19 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
-    @replies = Reply.all
+    @replies = Reply.where(user_id: current_user.id)
   end
 
   # GET /replies/1
   # GET /replies/1.json
   def show
+
   end
 
   # GET /replies/new
   def new
     @reply = Reply.new
+     
   end
 
   # GET /replies/1/edit
@@ -25,7 +27,7 @@ class RepliesController < ApplicationController
   # POST /replies.json
   def create
     @reply = Reply.new(reply_params)
-
+    @reply.user_id = current_user.id
     respond_to do |format|
       if @reply.save
         format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
@@ -69,6 +71,6 @@ class RepliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reply_params
-      params.require(:reply).permit(:r_um, :r_dois)
+      params.require(:reply).permit(:r_um, :r_dois, :daily_id)
     end
 end

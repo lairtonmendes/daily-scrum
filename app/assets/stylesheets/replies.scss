@@ -1,3 +1,11 @@
 // Place all the styles related to the Replies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#lista-respostas{
+	white-space: nowrap;
+	width: 300px;
+}
+#modal-lista-repostas{
+	margin-top: 100px;
+	width: 350px;
+}

@@ -3,20 +3,19 @@
 	.modal-content
 		.modal-header
 			%h4.modal-title Logar
-			%hr
-			= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-				.modal-body
-					%table#tabelalogin
-						%tr
-							%td Email:
-							%td 
-								= f.email_field :email, autofocus: true
-						%tr
-							%td Senha:
-							%td 
-								= f.password_field :password, autocomplete: "off"
-					= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-				.modal-footer
-					%button.btn.btn-info
-						Logar
-						- f.submit
+		= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+			.modal-body
+				%table#tabelalogin
+					%tr
+						%td Email:
+						%td 
+							= f.email_field :email, autofocus: true
+					%tr
+						%td Senha:
+						%td 
+							= f.password_field :password, autocomplete: "off"
+				= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+			.modal-footer
+				%button.btn.btn-info
+					Logar
+					- f.submit

@@ -1,0 +1,18 @@
+%div.modal-dialog#modal-lista-repostas{:role =>'document'}
+  .modal-content
+    .modal-header
+      %h4.modal-title Lista de Resposta
+    .modal-body
+      %table.table#lista-respostas
+        %thead
+          %tr
+            %th Data
+            %th Equipe
+            %th{:colspan => "1"}
+        %tbody
+          - @replies.each do |reply|
+            %tr
+              %td= reply.daily.data
+              %td= reply.daily.team.nome
+              %td= link_to 'Show', reply
+

@@ -2,8 +2,11 @@
 	.modal-content
 		.modal-header
 			%h4.modal-title
-				Nova Equipe
-				= @team.nome
+				- if @team.nome == ""
+					Nova Equipe
+				- else
+					Editar - 
+					= @team.nome
 		= simple_form_for @team do |f|
 			.modal-body
 				.form-group
@@ -13,7 +16,7 @@
 						%i Millennium Falcon, Team Captain America e etc...
 					= f.association :responsible, label_method: :email, label: "Responsavel", required:true
 					= f.association :members, as: :check_boxes,label_method: :email, label: "Membros", required:true
-				.modal-footer
-					%button.btn.btn-primary.btn-sm
-						= link_to 'Voltar', teams_path, {id: 'btn-link-to'}
-					= f.submit 'Savar', {class: 'btn btn-success btn-sm'}
+			.modal-footer
+				%button.btn.btn-primary.btn-sm
+					= link_to 'Voltar', teams_path, {id: 'btn-link-to'}
+				= f.submit 'Savar', {class: 'btn btn-success btn-sm'}

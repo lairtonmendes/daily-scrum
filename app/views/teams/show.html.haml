@@ -7,8 +7,8 @@
 				%h3.panel-title= @team.nome
 			.col-md-5.pull-right 
 				%button.btn.btn-primary.btn-xs
-					= glyph(:pencil)
-					= link_to 'Editar', edit_team_path(@team), {id: 'btn-link-to'}
+					= fa_icon "undo"
+					= link_to 'Voltar', teams_path, {id: 'btn-link-to'}
 				%button.btn.btn-primary.btn-xs
 					= glyph(:pencil)
 					= link_to 'Editar', edit_team_path(@team), {id: 'btn-link-to'}

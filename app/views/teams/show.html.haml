@@ -3,25 +3,24 @@
 .panel.panel-default.center-block#painelEquipe
 	.panel-heading
 		.row
-			.col-md-6
+			.col-md-7
 				%h3.panel-title= @team.nome
-			.col-md-6
-				.pull-right 
-					%button.btn.btn-primary.btn-xs
-						= glyph(:pencil)
-						= link_to 'Editar', edit_team_path(@team), {id: 'btn-link-to'}
+			.col-md-5.pull-right 
+				%button.btn.btn-primary.btn-xs
+					= glyph(:pencil)
+					= link_to 'Editar', edit_team_path(@team), {id: 'btn-link-to'}
+				%button.btn.btn-primary.btn-xs
+					= glyph(:pencil)
+					= link_to 'Editar', edit_team_path(@team), {id: 'btn-link-to'}
 	.panel-body
 		.row
-			.col-md-6
-				%b Membros da Equipe
+			.col-md-12
+				%b Responsável da Equipe
+				%br
+				= @team.responsible.email
+				%br
 				%hr
+				%b Membros da Equipe
 				- @team.members.each do |m|
 					%li= m.email
-			.col-md-6
-				.center-block
-					%b Membros de Disponíveis
-					%hr
-					= simple_form_for @team do |f|
-						= f.association :members, :label => false,as: :check_boxes, label_method: :email, include_blank: false
-						= f.submit 'Adicionar'
 						 

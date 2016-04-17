@@ -3,16 +3,43 @@
     .modal-header
       %h4.modal-title Lista de Resposta
     .modal-body
+      %b Deilies responsável
       %table.table#lista-respostas
         %thead
           %tr
+            %th Período
             %th Data
             %th Equipe
+            %th Nome
             %th{:colspan => "1"}
         %tbody
           - @replies.each do |reply|
             %tr
+              %td= reply.daily.tipo
               %td= reply.daily.data
               %td= reply.daily.team.nome
-              %td= link_to 'Show', reply
+              %td= reply.user.email
+              %td
+                %button.btn.btn-success.btn-xs
+                  #btn-link-to
+                    = glyph(:list_alt)
+                    = link_to 'Ver', reply, {id: 'btn-link-to'}
+      %b Deilies Respondidas
+      %table.table#lista-respostas
+        %thead
+          %tr
+            %th Período
+            %th Data
+            %th Equipe
+            %th{:colspan => "1"}
+        %tbody
+          - @yourreplies.each do |reply|
+            %tr
+              %td= reply.daily.tipo
+              %td= reply.daily.data
+              %td= reply.daily.team.nome
+              %td
+                %button.btn.btn-success.btn-xs
+                  = glyph(:list_alt)
+                  = link_to 'Ver', reply, {id: 'btn-link-to'}
 

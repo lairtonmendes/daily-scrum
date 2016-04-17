@@ -4,7 +4,8 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
-    @replies = Reply.where(user_id: current_user.id)
+    @replies = Reply.joins(daily: :team).where("teams.responsible_id = 1")
+    @yourreplies = Reply.where(user_id: current_user.id)
   end
 
   # GET /replies/1

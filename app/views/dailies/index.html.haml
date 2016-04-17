@@ -1,0 +1,24 @@
+%div.modal-dialog#modal-lista-repostas{:role =>'document'}
+  .modal-content
+    .modal-header
+      %h4.modal-title Dailies
+    .modal-body
+      %p#notice= notice
+      %table#lista-dailies.table.table-hover
+        %thead
+          %tr
+            %th Período
+            %th Data
+            %th Time
+            %th{:colspan => "1"}
+        %tbody
+          - @dailies.each do |daily|
+            %tr
+              %td= daily.tipo
+              %td= daily.data
+              %td= daily.team.nome
+              %td 
+                %button.btn.btn-success.btn-xs
+                  #btn-link-to
+                    = glyph(:list_alt)
+                    = link_to 'Ver', daily_replies_url(:daily_id => daily.id)

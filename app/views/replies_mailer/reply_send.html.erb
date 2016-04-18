@@ -1,0 +1,7 @@
+<h1><%= t "Daily diaria!!!" %> </h1>
+<p>
+<%= t "Responda a daily da sua equipe #{@daily.team.nome}"%>
+</p>
+
+<%=  link_to 'Link', new_daily_reply_url(:daily_id => @daily.id) %>
+

@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+
+gem 'puma'
+
+gem "libv8"
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -44,24 +48,23 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
+# gem font-awesome-rails for use icon
 gem "font-awesome-rails"
 
+# gem devise for authenticates and session control
 gem 'devise'
 
-#
+# gem simple_form creating more simplified form
 gem 'simple_form'
-#Bootstrap
+# Bootstrap
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
+# gem whenever use for integration app and crontab
 gem 'whenever', :require => false
 
+# gem haml reduce redundancy in html
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
-gem 'puma'
 
-gem 'haml', '~> 4.0', '>= 4.0.7'
-
-gem "libv8"

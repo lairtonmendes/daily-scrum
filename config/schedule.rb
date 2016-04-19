@@ -1,30 +1,15 @@
-# Use this file to easily define all of your cron jobs.
-#
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
+# set configuration to run the command with -l bash -i necessary to rvm
+env 'PATH', ENV['PATH']
+set :job_template, "bash -l -i -c ':job'"
 
-# Example:
-#
-# set :output, "/path/to/my/cron_log.log"
-#
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
-
-# Learn more: http://github.com/javan/whenever
-
-every :day, at: '8am' do
-  # specify the task name as a string
-  rake 'reply_send_m'
+# set cron job to 8am rake reply_send_m sending emails for responses morning 'dailies'  	
+every 1.day, :at => '8am' do
+  rake 'reply_send_m', :environment => 'development' 
+  rake 'reply_send_m', :environment => 'production'
 end
 
-every :day, at: '4pm' do
-  # specify the task name as a string
-  rake 'reply_send_t'
+# set cron job to 4pm rake reply_send_m sending emails for responses afternoon 'dailies'
+every 1.day, :at => '4pm' do
+  rake 'reply_send_t', :environment => 'development'
+  rake 'reply_send_t', :environment => 'production' 
 end

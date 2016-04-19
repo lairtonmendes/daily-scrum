@@ -1,4 +1,3 @@
-<%= t '.title' %> 
-<%= t '.body sfhdskjhks'%>
-
-
+<%= t "Daily diaria!!!" %>
+<%= t "Responda a daily da sua equipe #{@daily.team.nome}"%>
+<%=  link_to 'Link', new_daily_reply_url(:daily_id => @daily.id) %>

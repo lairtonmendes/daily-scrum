@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dailys</title>
+  <title>Daily Scrum</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	
-	<%= nav_bar fixed: :top, brand: "Dailys", responsive: true do %>
+	<%= nav_bar fixed: :top, brand: "Daily Scrum", responsive: true do %>
     <%= menu_group do %>
       <%= menu_item "Equipes", teams_path %>
       <%= menu_item "Dailies", dailies_path %>

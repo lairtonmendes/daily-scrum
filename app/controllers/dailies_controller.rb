@@ -1,5 +1,5 @@
 class DailiesController < ApplicationController
-  before_action :set_daily, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /dailies
   # GET /dailies.json

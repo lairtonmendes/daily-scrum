@@ -1,0 +1,18 @@
+%div.modal-dialog#modal-show-daily{:role =>'document'}
+	.modal-content
+		.modal-header
+			%h4.modal-title Daily
+		.modal-body
+			%p#notice
+				= notice
+			%p
+				%strong Time:
+				= @daily.team.nome
+			%p
+				%strong Tipo
+				= @daily.tipo
+
+			%p
+				%strong Data:
+				= @daily.data
+		

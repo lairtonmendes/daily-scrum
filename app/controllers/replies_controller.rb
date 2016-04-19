@@ -1,17 +1,16 @@
 class RepliesController < ApplicationController
-  before_action :set_reply, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /replies
   # GET /replies.json
   def index
-    @replies = Reply.joins(daily: :team).where("teams.responsible_id = 1")
+    @replies = Reply.joins(daily: :team).where("teams.responsible_id = ?", current_user.id)
     @yourreplies = Reply.where(user_id: current_user.id)
   end
 
   # GET /replies/1
   # GET /replies/1.json
   def show
-
+    @reply = Reply.find(params[:id])
   end
 
   # GET /replies/new

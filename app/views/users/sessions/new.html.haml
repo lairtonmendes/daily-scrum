@@ -16,6 +16,9 @@
 							= f.password_field :password, autocomplete: "off"
 				= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 			.modal-footer
+				%button.btn.btn-success
+					#btn-link-to
+					= link_to 'Cadastrar', new_user_registration_path, {id: 'btn-link-to'}
 				%button.btn.btn-info
 					Logar
 					- f.submit

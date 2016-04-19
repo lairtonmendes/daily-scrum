@@ -5,11 +5,11 @@
 		.modal-body
 			%p#notice= notice
 			%p
-				%strong= Question.new.title(@reply.daily,1)
+				%strong= Question.new.title(@reply.daily.id,1)
 				%br
 				= @reply.r_um
 			%p
-				%strong= Question.new.title(@reply.daily,2)
+				%strong= Question.new.title(@reply.daily.id,2)
 				%br
 				= @reply.r_dois
 			= link_to 'Edit', edit_reply_path(@reply)

@@ -10,6 +10,7 @@ class DailiesController < ApplicationController
   # GET /dailies/1
   # GET /dailies/1.json
   def show
+    @daily = Daily.find(params[:id])
   end
 
   # GET /dailies/new
